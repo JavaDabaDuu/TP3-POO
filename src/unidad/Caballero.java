@@ -7,7 +7,7 @@ public class Caballero extends Unidad {
 	private final static int DEFENSA = 4;
 	private final static double DISTANCIA_MINIMA = 1;
 	private final static double DISTANCIA_MAXIMA = 2;
-
+	
 	private boolean caballoRebelde;
 	private int ataquesRecibidos;
 

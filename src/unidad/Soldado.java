@@ -10,10 +10,12 @@ public class Soldado extends Unidad {
 	private final static double DISTANCIA_MAXIMA = 1;
 
 	private int energia;
+	private int energiaTopeActual;
 
 	public Soldado(Punto posicion) {
 		super(posicion);
-		this.energia = ENERGIA;
+		this.energiaTopeActual = ENERGIA;
+		this.energia = this.energiaTopeActual;
 		this.salud = SALUD;
 		this.ataque = ATAQUE;
 		this.defensa = DEFENSA;
@@ -24,7 +26,7 @@ public class Soldado extends Unidad {
 	@Override
 	public void consumirAgua() {
 		if(!this.estaMuerto())
-			this.energia = ENERGIA;
+			this.energia = this.energiaTopeActual;
 	}
 
 	@Override
@@ -49,6 +51,10 @@ public class Soldado extends Unidad {
 
 	public int getEnergia() {
 		return energia;
+	}
+
+	void setEnergia(int energia) {
+		this.energia = energia;
 	}
 
 }
