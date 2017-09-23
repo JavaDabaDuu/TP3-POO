@@ -2,6 +2,7 @@ package unidad;
 
 public class Lancero extends Unidad {
 
+	private final static int ENERGIA = 0;
 	private final static int SALUD = 150;
 	private final static int ATAQUE = 25;
 	private final static int DEFENSA = 2;
@@ -10,6 +11,7 @@ public class Lancero extends Unidad {
 
 	public Lancero(Punto posicion) {
 		super(posicion);
+		this.energiaTopeActual = ENERGIA;
 		this.salud = SALUD;
 		this.ataque = ATAQUE;
 		this.defensa = DEFENSA;
@@ -28,12 +30,12 @@ public class Lancero extends Unidad {
 	}
 
 	@Override
-	protected void serAtacado(int daño) {
-		if (daño > this.defensa) {
-			if (this.salud < daño)
+	protected void serAtacado(int daÃ±o) {
+		if (daÃ±o > this.defensa) {
+			if (this.salud < daÃ±o)
 				this.salud = 0;
 			else
-				this.salud -= daño - this.defensa;
+				this.salud -= daÃ±o*(1 - this.temple) - this.defensa;
 		}
 	}
 

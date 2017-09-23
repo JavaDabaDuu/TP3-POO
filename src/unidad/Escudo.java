@@ -1,10 +1,12 @@
 package unidad;
 
-public class Escudo extends Item {
+import java.util.HashMap;
 
+public class Escudo extends Item {
+	
 	@Override
 	protected void aplicarbonus() {
-		// TODO Auto-generated method stub
+		//bonus.put("Defensa", value);
 	
 	}
 	

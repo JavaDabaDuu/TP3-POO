@@ -2,14 +2,14 @@ package unidad;
 
 /**
  * La clase soldado es una Unidad.<br>
- * Tiene las características particulares de un soldado que no tiene unidad.
+ * Tiene las caracterÃ±sticas particulares de un soldado que no tiene unidad.
  * 
  * @author JavaDabaDuu
  */
 public class Soldado extends Unidad {
 
 	/**
-	 * Energía inicial de un soldado.
+	 * EnergÃ±a inicial de un soldado.
 	 */
 	private final static int ENERGIA = 100;
 	/**
@@ -25,23 +25,18 @@ public class Soldado extends Unidad {
 	 */
 	private final static int DEFENSA = 3;
 	/**
-	 * Distancia mínima a la que puede atacar un soldado.
+	 * Distancia mÃ±nima a la que puede atacar un soldado.
 	 */
 	private final static double DISTANCIA_MINIMA = 0.5;
 	/**
-	 * Distancia máxima a la que puede atacar un soldado.
+	 * Distancia mÃ±xima a la que puede atacar un soldado.
 	 */
 	private final static double DISTANCIA_MAXIMA = 1;
 
 	/**
-	 * Energía actual del soldado.
+	 * EnergÃ±a actual del soldado.
 	 */
 	private int energia;
-	/**
-	 * Tope de energía que tiene el soldado. <br>
-	 * Este tope puede ser modificado al equipar una capa.
-	 */
-	private int energiaTopeActual;
 
 	/**
 	 * Constructor de la clase Soldado. <br>
@@ -49,7 +44,7 @@ public class Soldado extends Unidad {
 	 * predeterminados.<br>
 	 * 
 	 * @param posicion
-	 *            es la posición inicial del soldado.
+	 *            es la posiciÃ±n inicial del soldado.
 	 */
 	public Soldado(Punto posicion) {
 		super(posicion);
@@ -63,8 +58,8 @@ public class Soldado extends Unidad {
 	}
 
 	/**
-	 * Sobreescritura del método consumirAgua de la clase Unidad.<br>
-	 * Método del soldado para consumir una poción de agua.
+	 * Sobreescritura del mÃ±todo consumirAgua de la clase Unidad.<br>
+	 * MÃ±todo del soldado para consumir una pociÃ±n de agua.
 	 */
 	@Override
 	public void consumirAgua() {
@@ -73,8 +68,8 @@ public class Soldado extends Unidad {
 	}
 
 	/**
-	 * Sobreescritura del método realizarAtaque de la clase Unidad.<br>
-	 * Método del soldado para actualizar susu atributos luego de realizar un
+	 * Sobreescritura del mÃ±todo realizarAtaque de la clase Unidad.<br>
+	 * MÃ±todo del soldado para actualizar susu atributos luego de realizar un
 	 * ataque.
 	 */
 	@Override
@@ -83,26 +78,26 @@ public class Soldado extends Unidad {
 	}
 
 	/**
-	 * Sobrescritura del método serAtacado de la clase Unidad.<br>
-	 * Método del soldado para recibir el impacto del daño recibido en un ataque
+	 * Sobrescritura del mÃ±todo serAtacado de la clase Unidad.<br>
+	 * MÃ±todo del soldado para recibir el impacto del daÃ±o recibido en un ataque
 	 * sobre su salud.
 	 * 
-	 * @param daño
-	 *            es el daño recibido por una unidad en un ataque
+	 * @param daÃ±o
+	 *            es el daÃ±o recibido por una unidad en un ataque
 	 */
 	@Override
-	protected void serAtacado(int daño) {
-		if (daño > this.defensa) {
-			if (this.salud < daño)
+	protected void serAtacado(int daÃ±o) {
+		if (daÃ±o > this.defensa) {
+			if (this.salud < daÃ±o)
 				this.salud = 0;
 			else
-				this.salud -= daño - this.defensa;
+				this.salud -= daÃ±o*(1 - this.temple) - this.defensa;
 		}
 	}
 
 	/**
-	 * Sobreescritura del método puedeRealizarAtaque de la clase Unidad.<br>
-	 * Método del soldado para analizar si puede realizar un ataque.
+	 * Sobreescritura del mÃ±todo puedeRealizarAtaque de la clase Unidad.<br>
+	 * MÃ±todo del soldado para analizar si puede realizar un ataque.
 	 * 
 	 * @return un booleano que indica si se puede realizar el ataque.
 	 */
@@ -112,19 +107,19 @@ public class Soldado extends Unidad {
 	}
 
 	/**
-	 * Setter del atributo energía del soldado.<br>
+	 * Setter del atributo energÃ±a del soldado.<br>
 	 * 
-	 * @return la energía actual del soldado
+	 * @return la energÃ±a actual del soldado
 	 */
 	public int getEnergia() {
 		return energia;
 	}
 
 	/**
-	 * Setter del atributo energía del soldado.<br>
+	 * Setter del atributo energÃ±a del soldado.<br>
 	 * 
 	 * @param energia
-	 *            es la energía que se le establece luego de equiparse una capa.
+	 *            es la energÃ±a que se le establece luego de equiparse una capa.
 	 */
 	void setEnergia(int energia) {
 		this.energia = energia;

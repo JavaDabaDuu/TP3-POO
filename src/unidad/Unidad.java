@@ -31,6 +31,11 @@ public abstract class Unidad {
 	protected int defensa;
 	
 	/**
+	 * Porcentaje de reducción de daño.
+	 */
+	protected double temple;
+	
+	/**
 	 * DistanciaMinima desde la cual una unidad puede atacar a otra.
 	 */
 	protected double distanciaMinima;
@@ -44,6 +49,12 @@ public abstract class Unidad {
 	 * Posicion actual de la unidad, respecto del 0.
 	 */
 	protected Punto posicion;
+	
+	/**
+	 * Tope de energia que tiene el soldado. <br>
+	 * Este tope puede ser modificado al equipar una capa.
+	 */
+	protected int energiaTopeActual;
 	
 	/**
 	 * Array con los items equipados en la unidad actualmente.
@@ -110,9 +121,9 @@ public abstract class Unidad {
 	/**
 	 * El metodo serAtacado() sera implementado por cada una de las clases hijas. <br>
 	 * Se encarga de ciertas modificaciones a la unidad luego de ser atacada por otra.
-	 * @param da�o
+	 * @param daño
 	 */
-	protected abstract void serAtacado(int da�o);
+	protected abstract void serAtacado(int daño);
 	
 	/**
 	 * Getter del atributo salud. <br>
@@ -185,15 +196,16 @@ public abstract class Unidad {
 		return this.salud == 0;
 	}
 	
-	/*
+	
 	protected boolean equipar(Item item) {
 		if(this.items.size() < CANT_MAX_ITEMS) {
 			items.add(item);
 			item.aplicarbonus();
 			return true;
 		}
-		
 		return false;
 	}
-	*/
+	
+	
+	
 }

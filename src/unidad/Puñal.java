@@ -1,6 +1,6 @@
 package unidad;
 
-public class Puñal extends Item {
+public class PuÃ±al extends Item {
 
 	@Override
 	protected void aplicarbonus() {

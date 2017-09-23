@@ -2,6 +2,7 @@ package unidad;
 
 public class Arquero extends Unidad {
 
+	private final static int ENERGIA = 0;
 	private final static int SALUD = 50;
 	private final static int ATAQUE = 5;
 	private final static int DEFENSA = 2;
@@ -13,6 +14,7 @@ public class Arquero extends Unidad {
 
 	public Arquero(Punto posicion) {
 		super(posicion);
+		this.energiaTopeActual = ENERGIA;
 		this.salud = SALUD;
 		this.ataque = ATAQUE;
 		this.defensa = DEFENSA;
@@ -32,13 +34,13 @@ public class Arquero extends Unidad {
 	}
 
 	@Override
-	protected void serAtacado(int daño) {
+	protected void serAtacado(int daÃ±o) {
 		
-		if (daño > this.defensa) {
-			if (this.salud < daño)
+		if (daÃ±o > this.defensa) {
+			if (this.salud < daÃ±o)
 				this.salud = 0;
 			else
-				this.salud -= daño - this.defensa;
+				this.salud -= daÃ±o*(1 - this.temple) - this.defensa;
 		}
 	}
 
