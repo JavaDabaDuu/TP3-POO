@@ -18,7 +18,7 @@ public class ArqueroTest {
 		Assert.assertEquals(50, this.arquero.getSalud());
 		Assert.assertEquals(5, this.arquero.getAtaque());
 		Assert.assertEquals(2, this.arquero.getDefensa());
-		Assert.assertEquals(20, this.arquero.getCantFlechas());
+		Assert.assertEquals(20, this.arquero.getCantidadFlechas());
 		Assert.assertEquals(5, this.arquero.getDistanciaMaxima(), 0.0000001);
 		Assert.assertEquals(2, this.arquero.getDistanciaMinima(), 0.0000001);
 	}
@@ -41,13 +41,13 @@ public class ArqueroTest {
 	@Test
 	public void queTireFlecha() {
 		this.arquero.atacar(new Soldado(new Punto(3,3)));
-		Assert.assertEquals(19, this.arquero.getCantFlechas());
+		Assert.assertEquals(19, this.arquero.getCantidadFlechas());
 	}
 	
 	@Test
 	public void queRecibeFlechas() {
 		this.arquero.recibirPaquete();
-		Assert.assertEquals(26, this.arquero.getCantFlechas());
+		Assert.assertEquals(26, this.arquero.getCantidadFlechas());
 	}
 	
 	@Test

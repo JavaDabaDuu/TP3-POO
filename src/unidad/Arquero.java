@@ -1,17 +1,55 @@
 package unidad;
 
+/**
+ * La clase Arquero es una Unidad.<br>
+ * Tiene las características particulares de un arquero que no tiene unidad.
+ * 
+ * @author JavaDabaDuu
+ */
 public class Arquero extends Unidad {
 
+	/**
+	 * Energía inicial de un arquero.
+	 */
 	private final static int ENERGIA = 0;
+	/**
+	 * Salud inicial de un arquero.
+	 */
 	private final static int SALUD = 50;
+	/**
+	 * Ataque inicial de un arquero.
+	 */
 	private final static int ATAQUE = 5;
+	/**
+	 * Defensa inicial de un arquero.
+	 */
 	private final static int DEFENSA = 2;
+	/**
+	 * Distancia mínima a la que puede atacar un arquero.
+	 */
 	private final static double DISTANCIA_MINIMA = 2;
+	/**
+	 * Distancia máxima a la que puede atacar un arquero.
+	 */
 	private final static double DISTANCIA_MAXIMA = 5;
-	private final static int CANT_FLECHAS = 20;
+	/**
+	 * Cantidad inicial de flechas que el arquero tiene en su carcaj.
+	 */
+	private final static int CANTIDAD_FLECHAS = 20;
 
-	private int cantFlechas;
+	/**
+	 * Cantidad actual de flechas que el arquero tiene en su carcaj.
+	 */
+	private int cantidadFlechas;
 
+	/**
+	 * Constructor de la clase Arquero. <br>
+	 * Establece los atributos de arquero a los valores iniciales
+	 * predeterminados.<br>
+	 * 
+	 * @param posicion
+	 *            es la posición inicial del arquero.
+	 */
 	public Arquero(Punto posicion) {
 		super(posicion);
 		this.energiaTopeActual = ENERGIA;
@@ -20,44 +58,78 @@ public class Arquero extends Unidad {
 		this.defensa = DEFENSA;
 		this.distanciaMinima = DISTANCIA_MINIMA;
 		this.distanciaMaxima = DISTANCIA_MAXIMA;
-		this.cantFlechas = CANT_FLECHAS;
+		this.cantidadFlechas = CANTIDAD_FLECHAS;
 	}
 
+	/**
+	 * Sobreescritura del método consumirAgua de la clase Unidad.<br>
+	 * Método del arquero para consumir una poción de agua.
+	 */
 	@Override
 	public void consumirAgua() {
 
 	}
 
+	/**
+	 * Sobreescritura del método realizarAtaque de la clase Unidad.<br>
+	 * Método del arquero para actualizar sus atributos luego de realizar un
+	 * ataque.
+	 */
 	@Override
 	protected void realizarAtaque() {
-		this.cantFlechas -= 1;
+		this.cantidadFlechas -= 1;
 	}
 
+	/**
+	 * Sobrescritura del método serAtacado de la clase Unidad.<br>
+	 * Método del arquero para recibir el impacto del daño recibido en un ataque
+	 * sobre su salud.<br>
+	 * El daño recibido es reducido por el temple.
+	 * 
+	 * @param daño
+	 *            es el daño recibido por una unidad en un ataque
+	 */
 	@Override
 	protected void serAtacado(int daño) {
-		
 		if (daño > this.defensa) {
 			if (this.salud < daño)
 				this.salud = 0;
 			else
-				this.salud -= daño*(1 - this.temple) - this.defensa;
+				this.salud -= daño * (1 - this.temple) - this.defensa;
 		}
 	}
 
+	/**
+	 * Sobreescritura del método puedeRealizarAtaque de la clase Unidad.<br>
+	 * Método del arquero para analizar si puede realizar un ataque.<br>
+	 * El arquero puede atacar si al menos cuenta con una flecha en el carcaj.
+	 * 
+	 * @return un booleano que indica si se puede realizar el ataque.
+	 */
 	@Override
 	protected boolean puedeRealizarAtaque() {
-		return this.cantFlechas >= 1;
+		return this.cantidadFlechas >= 1;
 	}
 
+	/**
+	 * Método del arquero para recibir un paquete de flechas para recargar su
+	 * carcaj. Todos los paquetes de flechas tienen 6 flechas.<br>
+	 * El arquero recarga su carcaj con flechas sin límite.
+	 */
 	public void recibirPaquete() {
-		if(!this.estaMuerto()) {
-			if(this.cantFlechas + 6 <= Integer.MAX_VALUE)
-				this.cantFlechas += 6;
+		if (!this.estaMuerto()) {
+			if (this.cantidadFlechas + 6 <= Integer.MAX_VALUE)
+				this.cantidadFlechas += 6;
 		}
 	}
-	
-	public int getCantFlechas() {
-		return cantFlechas;
+
+	/**
+	 * Getter del atributo cantidad de flechas del arquero.
+	 * 
+	 * @return la cantidad de flechas actual del arquero.
+	 */
+	public int getCantidadFlechas() {
+		return cantidadFlechas;
 	}
 
 }

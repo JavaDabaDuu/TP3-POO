@@ -1,15 +1,15 @@
 package unidad;
 
 /**
- * La clase soldado es una Unidad.<br>
- * Tiene las caracterñsticas particulares de un soldado que no tiene unidad.
+ * La clase Soldado es una Unidad.<br>
+ * Tiene las características particulares de un soldado que no tiene unidad.
  * 
  * @author JavaDabaDuu
  */
 public class Soldado extends Unidad {
 
 	/**
-	 * Energña inicial de un soldado.
+	 * Energía inicial de un soldado.
 	 */
 	private final static int ENERGIA = 100;
 	/**
@@ -25,16 +25,16 @@ public class Soldado extends Unidad {
 	 */
 	private final static int DEFENSA = 3;
 	/**
-	 * Distancia mñnima a la que puede atacar un soldado.
+	 * Distancia mínima a la que puede atacar un soldado.
 	 */
 	private final static double DISTANCIA_MINIMA = 0.5;
 	/**
-	 * Distancia mñxima a la que puede atacar un soldado.
+	 * Distancia máxima a la que puede atacar un soldado.
 	 */
 	private final static double DISTANCIA_MAXIMA = 1;
 
 	/**
-	 * Energña actual del soldado.
+	 * Energía actual del soldado.
 	 */
 	private int energia;
 
@@ -44,7 +44,7 @@ public class Soldado extends Unidad {
 	 * predeterminados.<br>
 	 * 
 	 * @param posicion
-	 *            es la posiciñn inicial del soldado.
+	 *            es la posición inicial del soldado.
 	 */
 	public Soldado(Punto posicion) {
 		super(posicion);
@@ -58,8 +58,9 @@ public class Soldado extends Unidad {
 	}
 
 	/**
-	 * Sobreescritura del mñtodo consumirAgua de la clase Unidad.<br>
-	 * Mñtodo del soldado para consumir una pociñn de agua.
+	 * Sobreescritura del método consumirAgua de la clase Unidad.<br>
+	 * Método del soldado para consumir una poción de agua.
+	 * Reestablece el valor de energía actual al de su tope.
 	 */
 	@Override
 	public void consumirAgua() {
@@ -68,8 +69,8 @@ public class Soldado extends Unidad {
 	}
 
 	/**
-	 * Sobreescritura del mñtodo realizarAtaque de la clase Unidad.<br>
-	 * Mñtodo del soldado para actualizar susu atributos luego de realizar un
+	 * Sobreescritura del método realizarAtaque de la clase Unidad.<br>
+	 * Método del soldado para actualizar sus atributos luego de realizar un
 	 * ataque.
 	 */
 	@Override
@@ -78,9 +79,10 @@ public class Soldado extends Unidad {
 	}
 
 	/**
-	 * Sobrescritura del mñtodo serAtacado de la clase Unidad.<br>
-	 * Mñtodo del soldado para recibir el impacto del daño recibido en un ataque
-	 * sobre su salud.
+	 * Sobrescritura del método serAtacado de la clase Unidad.<br>
+	 * Método del soldado para recibir el impacto del daño recibido en un ataque
+	 * sobre su salud.<br>
+	 * El daño recibido es reducido por el temple.
 	 * 
 	 * @param daño
 	 *            es el daño recibido por una unidad en un ataque
@@ -91,13 +93,14 @@ public class Soldado extends Unidad {
 			if (this.salud < daño)
 				this.salud = 0;
 			else
-				this.salud -= daño*(1 - this.temple) - this.defensa;
+				this.salud -= daño * (1 - this.temple) - this.defensa;
 		}
 	}
 
 	/**
-	 * Sobreescritura del mñtodo puedeRealizarAtaque de la clase Unidad.<br>
-	 * Mñtodo del soldado para analizar si puede realizar un ataque.
+	 * Sobreescritura del método puedeRealizarAtaque de la clase Unidad.<br>
+	 * Método del soldado para analizar si puede realizar un ataque.<br>
+	 * El soldado puede atacar si tiene un mínimo valor de energía.
 	 * 
 	 * @return un booleano que indica si se puede realizar el ataque.
 	 */
@@ -107,19 +110,19 @@ public class Soldado extends Unidad {
 	}
 
 	/**
-	 * Setter del atributo energña del soldado.<br>
+	 * Setter del atributo energía del soldado.<br>
 	 * 
-	 * @return la energña actual del soldado
+	 * @return la energía actual del soldado
 	 */
 	public int getEnergia() {
 		return energia;
 	}
 
 	/**
-	 * Setter del atributo energña del soldado.<br>
+	 * Setter del atributo energía del soldado.<br>
 	 * 
 	 * @param energia
-	 *            es la energña que se le establece luego de equiparse una capa.
+	 *            es la energía que se le establece luego de equiparse una capa.
 	 */
 	void setEnergia(int energia) {
 		this.energia = energia;
