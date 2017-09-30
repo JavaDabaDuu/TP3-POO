@@ -93,7 +93,7 @@ public class Soldado extends Unidad {
 			if (this.salud < daño)
 				this.salud = 0;
 			else
-				this.salud -= daño * (1 - this.temple) - this.defensa;
+				this.salud -= daño - this.defensa;
 		}
 	}
 

@@ -1,21 +1,14 @@
 package unidad;
 
-import java.util.ArrayList;
-
 /**
  * La clase abstracta Unidad engloba las caracteristicas comunes a todas las
  * unidades. <br>
- * Tiene un constructor que recibe la posicion inicial de la unidad. <br>
+ * Tiene un constructor que recibe la posicion inicial de la unidad, y uno por copia. <br>
  * 
  * @author JavaDabaDuu
  */
 
 public abstract class Unidad {
-
-	/**
-	 * Cantidad de items máxima que pueden equiparse en una Unidad.
-	 */
-	protected final static int CANT_MAX_ITEMS = 3;
 
 	/**
 	 * Salud inicial de la unidad.
@@ -31,11 +24,6 @@ public abstract class Unidad {
 	 * Defensa inicial de la unidad.
 	 */
 	protected int defensa;
-
-	/**
-	 * Porcentaje de reducción de daño.
-	 */
-	protected double temple;
 
 	/**
 	 * DistanciaMinima desde la cual una unidad puede atacar a otra.
@@ -58,10 +46,6 @@ public abstract class Unidad {
 	 */
 	protected int energiaTopeActual;
 
-	/**
-	 * Array con los items equipados en la unidad actualmente.
-	 */
-	protected ArrayList<Item> items;
 
 	/**
 	 * El constructor de Unidad recibe un Punto, que representa la posicion de
@@ -69,6 +53,23 @@ public abstract class Unidad {
 	 */
 	public Unidad(Punto posicion) {
 		this.posicion = posicion;
+	}
+	
+	/**
+	 * El constructor por copia Unidad recibe una Unidad de la cual copiará sus atributos.
+	 */
+	public Unidad(Unidad unidad) {
+		this.ataque = unidad.getAtaque();
+		this.defensa = unidad.getDefensa();
+		this.distanciaMaxima = unidad.getDistanciaMaxima();
+		this.distanciaMinima = unidad.getDistanciaMinima();
+		this.energiaTopeActual = unidad.getEnergiaTopeActual();
+		this.salud = unidad.getSalud();
+		this.posicion = unidad.getPosicion();
+	}
+
+	private int getEnergiaTopeActual() {
+		return this.energiaTopeActual;
 	}
 
 	/**
@@ -190,15 +191,6 @@ public abstract class Unidad {
 	}
 
 	/**
-	 * Getter del array de items. <br>
-	 * 
-	 * @return retorna el array de items que tiene equipados la unidad. <br>
-	 */
-	public ArrayList<Item> getItems() {
-		return items;
-	}
-
-	/**
 	 * Setter de la posición. <br>
 	 */
 	void setPosicion(Punto posicion) {
@@ -221,23 +213,6 @@ public abstract class Unidad {
 	 */
 	public boolean estaMuerto() {
 		return this.salud == 0;
-	}
-
-	/**
-	 * Método para equipar un ítem.<br>
-	 * Al aplcar un ítem, se aplica un bonus sobre la unidad.
-	 * 
-	 * @param item
-	 *            es el ítem a equipar.
-	 * @return un booleano que indica si el ítem fue equipado.
-	 */
-	protected boolean equipar(Item item) {
-		if (this.items.size() < CANT_MAX_ITEMS) {
-			items.add(item);
-			item.aplicarbonus();
-			return true;
-		}
-		return false;
 	}
 
 }
