@@ -68,10 +68,6 @@ public abstract class Unidad {
 		this.posicion = unidad.getPosicion();
 	}
 
-	private int getEnergiaTopeActual() {
-		return this.energiaTopeActual;
-	}
-
 	/**
 	 * El método consumirAgua() será implementado por cada una de las clases
 	 * hijas.
@@ -190,6 +186,15 @@ public abstract class Unidad {
 		return distanciaMaxima;
 	}
 
+	/**
+	 * Getter del atributo EnergiaTopeActual. <br>
+	 * 
+	 * @return retorna la energia tope actual de la unidad
+	 */
+	private int getEnergiaTopeActual() {
+		return this.energiaTopeActual;
+	}
+	
 	/**
 	 * Setter de la posición. <br>
 	 */

@@ -2,12 +2,23 @@ package unidad;
 
 public class UnidadConEscudo extends UnidadEquipada {
 
+	/**
+	 * Porcentaje que se aplicará al daño recibido por la unidad.
+	 */
 	protected final static double PORCENTAJE_REDUCCION = 0.6;
 	
+	/**
+	 * Constructor de UnidadConCapa que recibe una Unidad. En este caso no cambian sus atributos.
+	 * @param unidad
+	 */
 	public UnidadConEscudo(Unidad unidad) {
 		super(unidad);
 	}
 
+	/**
+	 * Sobreescritura del metodo serAtacado, aplicándose el porcentaje de reducción de daño.
+	 * @param daño
+	 */
 	@Override
 	protected void serAtacado(int daño) {
 		if (daño > this.defensa) {
