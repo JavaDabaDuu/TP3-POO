@@ -11,19 +11,19 @@ public class Caballero extends Unidad {
 	/**
 	 * Energía inicial de una caballero.
 	 */
-	private final static int ENERGIA = 0;
+	private final static int ENERGIA_BASE = 0;
 	/**
 	 * Salud inicial de un caballero.
 	 */
-	private final static int SALUD = 200;
+	private final static int SALUD_BASE = 200;
 	/**
 	 * Ataque inicial de un caballero.
 	 */
-	private final static int ATAQUE = 50;
+	private final static int ATAQUE_BASE = 50;
 	/**
 	 * Defensa inicial de un caballero.
 	 */
-	private final static int DEFENSA = 4;
+	private final static int DEFENSA_BASE = 4;
 	/**
 	 * Distancia mínima a la que puede atacar un caballero.
 	 */
@@ -55,10 +55,10 @@ public class Caballero extends Unidad {
 	 */
 	public Caballero(Punto posicion) {
 		super(posicion);
-		this.energiaTopeActual = ENERGIA;
-		this.salud = SALUD;
-		this.ataque = ATAQUE;
-		this.defensa = DEFENSA;
+		this.energiaTopeActual = ENERGIA_BASE;
+		this.salud = SALUD_BASE;
+		this.ataque = ATAQUE_BASE;
+		this.defensa = DEFENSA_BASE;
 		this.distanciaMinima = DISTANCIA_MINIMA;
 		this.distanciaMaxima = DISTANCIA_MAXIMA;
 		this.caballoRebelde = false;

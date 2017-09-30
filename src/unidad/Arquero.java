@@ -11,19 +11,19 @@ public class Arquero extends Unidad {
 	/**
 	 * Energía inicial de un arquero.
 	 */
-	private final static int ENERGIA = 0;
+	private final static int ENERGIA_BASE = 0;
 	/**
 	 * Salud inicial de un arquero.
 	 */
-	private final static int SALUD = 50;
+	private final static int SALUD_BASE = 50;
 	/**
 	 * Ataque inicial de un arquero.
 	 */
-	private final static int ATAQUE = 5;
+	private final static int ATAQUE_BASE = 5;
 	/**
 	 * Defensa inicial de un arquero.
 	 */
-	private final static int DEFENSA = 1;
+	private final static int DEFENSA_BASE = 1;
 	/**
 	 * Distancia mínima a la que puede atacar un arquero.
 	 */
@@ -52,10 +52,10 @@ public class Arquero extends Unidad {
 	 */
 	public Arquero(Punto posicion) {
 		super(posicion);
-		this.energiaTopeActual = ENERGIA;
-		this.salud = SALUD;
-		this.ataque = ATAQUE;
-		this.defensa = DEFENSA;
+		this.energiaTopeActual = ENERGIA_BASE;
+		this.salud = SALUD_BASE;
+		this.ataque = ATAQUE_BASE;
+		this.defensa = DEFENSA_BASE;
 		this.distanciaMinima = DISTANCIA_MINIMA;
 		this.distanciaMaxima = DISTANCIA_MAXIMA;
 		this.cantidadFlechas = CANTIDAD_FLECHAS;

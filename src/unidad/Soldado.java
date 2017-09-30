@@ -11,19 +11,19 @@ public class Soldado extends Unidad {
 	/**
 	 * Energía inicial de un soldado.
 	 */
-	private final static int ENERGIA = 100;
+	private final static int ENERGIA_BASE = 100;
 	/**
 	 * Salud inicial de un soldado.
 	 */
-	private final static int SALUD = 200;
+	private final static int SALUD_BASE = 200;
 	/**
 	 * Ataque inicial de un soldado.
 	 */
-	private final static int ATAQUE = 10;
+	private final static int ATAQUE_BASE = 10;
 	/**
 	 * Defensa inicial de un soldado.
 	 */
-	private final static int DEFENSA = 3;
+	private final static int DEFENSA_BASE = 3;
 	/**
 	 * Distancia mínima a la que puede atacar un soldado.
 	 */
@@ -48,11 +48,11 @@ public class Soldado extends Unidad {
 	 */
 	public Soldado(Punto posicion) {
 		super(posicion);
-		this.energiaTopeActual = ENERGIA;
+		this.energiaTopeActual = ENERGIA_BASE;
 		this.energia = this.energiaTopeActual;
-		this.salud = SALUD;
-		this.ataque = ATAQUE;
-		this.defensa = DEFENSA;
+		this.salud = SALUD_BASE;
+		this.ataque = ATAQUE_BASE;
+		this.defensa = DEFENSA_BASE;
 		this.distanciaMinima = DISTANCIA_MINIMA;
 		this.distanciaMaxima = DISTANCIA_MAXIMA;
 	}

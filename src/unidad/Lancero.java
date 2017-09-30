@@ -11,19 +11,19 @@ public class Lancero extends Unidad {
 	/**
 	 * Energía inicial de un lancero.
 	 */
-	private final static int ENERGIA = 0;
+	private final static int ENERGIA_BASE = 0;
 	/**
 	 * Salud inicial de un lancero.
 	 */
-	private final static int SALUD = 150;
+	private final static int SALUD_BASE = 150;
 	/**
 	 * Ataque inicial de un lancero.
 	 */
-	private final static int ATAQUE = 25;
+	private final static int ATAQUE_BASE = 25;
 	/**
 	 * Defensa inicial de un lancero.
 	 */
-	private final static int DEFENSA = 2;
+	private final static int DEFENSA_BASE = 2;
 	/**
 	 * Distancia mínima a la que puede atacer un lancero.
 	 */
@@ -43,10 +43,10 @@ public class Lancero extends Unidad {
 	 */
 	public Lancero(Punto posicion) {
 		super(posicion);
-		this.energiaTopeActual = ENERGIA;
-		this.salud = SALUD;
-		this.ataque = ATAQUE;
-		this.defensa = DEFENSA;
+		this.energiaTopeActual = ENERGIA_BASE;
+		this.salud = SALUD_BASE;
+		this.ataque = ATAQUE_BASE;
+		this.defensa = DEFENSA_BASE;
 		this.distanciaMinima = DISTANCIA_MINIMA;
 		this.distanciaMaxima = DISTANCIA_MAXIMA;
 	}
