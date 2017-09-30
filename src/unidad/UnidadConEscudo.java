@@ -5,7 +5,7 @@ public class UnidadConEscudo extends UnidadEquipada {
 	/**
 	 * Porcentaje que se aplicará al daño recibido por la unidad.
 	 */
-	protected final static double PORCENTAJE_REDUCCION = 0.6;
+	protected final static double PORCENTAJE_REDUCCION = 0.4;
 	
 	/**
 	 * Constructor de UnidadConCapa que recibe una Unidad. En este caso no cambian sus atributos.

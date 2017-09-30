@@ -17,7 +17,7 @@ public class ArqueroTest {
 	public void queTengaAtributosCorrectos() {
 		Assert.assertEquals(50, this.arquero.getSalud());
 		Assert.assertEquals(5, this.arquero.getAtaque());
-		Assert.assertEquals(2, this.arquero.getDefensa());
+		Assert.assertEquals(1, this.arquero.getDefensa());
 		Assert.assertEquals(20, this.arquero.getCantidadFlechas());
 		Assert.assertEquals(5, this.arquero.getDistanciaMaxima(), 0.0000001);
 		Assert.assertEquals(2, this.arquero.getDistanciaMinima(), 0.0000001);
@@ -62,13 +62,14 @@ public class ArqueroTest {
 	public void queSeaAtacado() {
 		Arquero atacante = new Arquero(new Punto(3,3));
 		atacante.atacar(this.arquero);
-		Assert.assertEquals(47, this.arquero.getSalud());
+		Assert.assertEquals(46, this.arquero.getSalud());
 	}
 	
 	@Test
 	public void equipadoConPuñal() {
 		UnidadEquipada unidad = new UnidadConPuñal(this.arquero);
 		Assert.assertEquals(8, unidad.getAtaque());
+		Assert.assertEquals(-2, unidad.getDefensa());
 	}
 	
 	@Test
@@ -89,6 +90,7 @@ public class ArqueroTest {
 	public void equipadoConPuñalYCapa() {
 		UnidadEquipada unidad = new UnidadConCapa(new UnidadConPuñal(this.arquero));
 		Assert.assertEquals(7, unidad.getAtaque());
+		Assert.assertEquals(-2, unidad.getDefensa());
 	}
 	
 	@Test
@@ -96,8 +98,9 @@ public class ArqueroTest {
 		UnidadEquipada unidad = new UnidadConEscudo(new UnidadConPuñal(this.arquero));
 		Arquero atacante = new Arquero(new Punto(3,3));
 		atacante.atacar(unidad);
-		Assert.assertEquals(47, unidad.getSalud());
+		Assert.assertEquals(48, unidad.getSalud());
 		Assert.assertEquals(8, unidad.getAtaque());
+		Assert.assertEquals(-2, unidad.getDefensa());
 	}
 	
 	@Test
@@ -114,7 +117,8 @@ public class ArqueroTest {
 		UnidadEquipada unidad = new UnidadConEscudo(new UnidadConPuñal(new UnidadConCapa(this.arquero)));
 		Arquero atacante = new Arquero(new Punto(3,3));
 		atacante.atacar(unidad);
-		Assert.assertEquals(47, unidad.getSalud());
+		Assert.assertEquals(48, unidad.getSalud());
 		Assert.assertEquals(7, unidad.getAtaque());
+		Assert.assertEquals(-2, unidad.getDefensa());
 	}
 }

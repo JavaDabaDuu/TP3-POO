@@ -23,7 +23,7 @@ public class Arquero extends Unidad {
 	/**
 	 * Defensa inicial de un arquero.
 	 */
-	private final static int DEFENSA = 2;
+	private final static int DEFENSA = 1;
 	/**
 	 * Distancia mínima a la que puede atacar un arquero.
 	 */
