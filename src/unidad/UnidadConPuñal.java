@@ -1,5 +1,10 @@
 package unidad;
 
+/**
+ * La clase UnidadConPuñal es una UnidadEquipada. <br>
+ * Tendrá las características particulares que no tiene una UnidadEquipada.
+ */
+
 public class UnidadConPuñal extends UnidadEquipada{
 	
 	/**

@@ -1,5 +1,10 @@
 package unidad;
 
+/**
+ * La clase UnidadConCapa es una UnidadEquipada. <br>
+ * Tendrá las características particulares que no tiene una UnidadEquipada.
+ */
+
 public class UnidadConCapa extends UnidadEquipada{
 
 	/**
