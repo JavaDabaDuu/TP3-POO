@@ -90,7 +90,7 @@ public class Caballero extends Unidad {
 	 * Sobrescritura del método serAtacado de la clase Unidad.<br>
 	 * Método del caballero para recibir el impacto del daño recibido en un
 	 * ataque sobre su salud.<br>
-	 * El daño recibido es reducido por el temple.<br>
+	 * El daño recibido es reducido por la defensa.<br>
 	 * Se actualiza el estado del caballo luego de recibir el ataque.
 	 * 
 	 * @param daño

@@ -77,14 +77,14 @@ public class Arquero extends Unidad {
 	 */
 	@Override
 	protected void realizarAtaque() {
-		this.cantidadFlechas -= 1;
+		this.cantidadFlechas--;
 	}
 
 	/**
 	 * Sobrescritura del método serAtacado de la clase Unidad.<br>
 	 * Método del arquero para recibir el impacto del daño recibido en un ataque
 	 * sobre su salud.<br>
-	 * El daño recibido es reducido por el temple.
+	 * El daño recibido es reducido por la defensa.
 	 * 
 	 * @param daño
 	 *            es el daño recibido por una unidad en un ataque
@@ -108,7 +108,7 @@ public class Arquero extends Unidad {
 	 */
 	@Override
 	protected boolean puedeRealizarAtaque() {
-		return this.cantidadFlechas >= 1;
+		return this.cantidadFlechas > 0;
 	}
 
 	/**

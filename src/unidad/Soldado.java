@@ -59,8 +59,8 @@ public class Soldado extends Unidad {
 
 	/**
 	 * Sobreescritura del método consumirAgua de la clase Unidad.<br>
-	 * Método del soldado para consumir una poción de agua.
-	 * Reestablece el valor de energía actual al de su tope.
+	 * Método del soldado para consumir una poción de agua. Reestablece el valor
+	 * de energía actual al de su tope.
 	 */
 	@Override
 	public void consumirAgua() {
@@ -82,7 +82,7 @@ public class Soldado extends Unidad {
 	 * Sobrescritura del método serAtacado de la clase Unidad.<br>
 	 * Método del soldado para recibir el impacto del daño recibido en un ataque
 	 * sobre su salud.<br>
-	 * El daño recibido es reducido por el temple.
+	 * El daño recibido es reducido por la defensa.
 	 * 
 	 * @param daño
 	 *            es el daño recibido por una unidad en un ataque

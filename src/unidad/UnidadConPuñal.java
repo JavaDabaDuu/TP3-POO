@@ -5,21 +5,24 @@ package unidad;
  * Tendrá las características particulares que no tiene una UnidadEquipada.
  */
 
-public class UnidadConPuñal extends UnidadEquipada{
-	
+public class UnidadConPuñal extends UnidadEquipada {
+
 	/**
 	 * Valor en el cual se incrementará el ataque de la unidad.
 	 */
 	protected static final int INCREMENTO_ATAQUE = 3;
-	
+
 	/**
 	 * Valor en el cual se decrementará la defensa de la unidad.
 	 */
 	protected static final int REDUCCION_DEFENSA = 3;
-	
+
 	/**
-	 * Constructor de UnidadConPuñal que recibe una Unidad a la cual se le modificarán sus atributos.
+	 * Constructor de UnidadConPuñal que recibe una Unidad a la cual se le
+	 * modificarán sus atributos.
+	 * 
 	 * @param unidad
+	 *            es la unidad que se equipa con un puñal
 	 */
 	public UnidadConPuñal(Unidad unidad) {
 		super(unidad);

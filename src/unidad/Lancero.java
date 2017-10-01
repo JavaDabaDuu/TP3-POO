@@ -74,7 +74,7 @@ public class Lancero extends Unidad {
 	 * Sobrescritura del método serAtacado de la clase Unidad.<br>
 	 * Método del lancero para recibir el impacto del daño recibido en un ataque
 	 * sobre su salud.<br>
-	 * El daño recibido es reducido por el temple.
+	 * El daño recibido es reducido por la defensa.
 	 * 
 	 * @param daño
 	 *            es el daño recibido por una unidad en un ataque

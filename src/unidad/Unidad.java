@@ -1,9 +1,10 @@
 package unidad;
 
 /**
- * La clase abstracta Unidad engloba las caracteristicas comunes a todas las
+ * La clase abstracta Unidad engloba las características comunes a todas las
  * unidades. <br>
- * Tiene un constructor que recibe la posicion inicial de la unidad, y uno por copia. <br>
+ * Tiene un constructor que recibe la posición inicial de la unidad, y uno por
+ * copia. <br>
  * 
  * @author JavaDabaDuu
  */
@@ -26,17 +27,17 @@ public abstract class Unidad {
 	protected int defensa;
 
 	/**
-	 * DistanciaMinima desde la cual una unidad puede atacar a otra.
+	 * Distancia mínima desde la cual una unidad puede atacar a otra.
 	 */
 	protected double distanciaMinima;
 
 	/**
-	 * DistanciaMaxima desde la cual una unidad puede atacar a otra.
+	 * Distancia máxima desde la cual una unidad puede atacar a otra.
 	 */
 	protected double distanciaMaxima;
 
 	/**
-	 * Posicion actual de la unidad, respecto del 0.
+	 * Posición actual de la unidad.
 	 */
 	protected Punto posicion;
 
@@ -46,17 +47,16 @@ public abstract class Unidad {
 	 */
 	protected int energiaTopeActual;
 
-
 	/**
-	 * El constructor de Unidad recibe un Punto, que representa la posicion de
-	 * la Unidad.
+	 * El constructor de Unidad recibe un punto en el que se sitúa la unidad.
 	 */
 	public Unidad(Punto posicion) {
 		this.posicion = posicion;
 	}
-	
+
 	/**
-	 * El constructor por copia Unidad recibe una Unidad de la cual copiará sus atributos.
+	 * El constructor por copia Unidad recibe una Unidad de la cual copiará sus
+	 * atributos.
 	 */
 	public Unidad(Unidad unidad) {
 		this.ataque = unidad.getAtaque();
@@ -189,12 +189,12 @@ public abstract class Unidad {
 	/**
 	 * Getter del atributo EnergiaTopeActual. <br>
 	 * 
-	 * @return retorna la energia tope actual de la unidad
+	 * @return retorna la energía tope actual de la unidad.
 	 */
 	private int getEnergiaTopeActual() {
 		return this.energiaTopeActual;
 	}
-	
+
 	/**
 	 * Setter de la posición. <br>
 	 */
@@ -205,7 +205,7 @@ public abstract class Unidad {
 	/**
 	 * Getter de la posición. <br>
 	 * 
-	 * @return retorna la posicion actual de la Unidad.
+	 * @return retorna la posición actual de la Unidad.
 	 */
 	public Punto getPosicion() {
 		return posicion;
@@ -214,7 +214,7 @@ public abstract class Unidad {
 	/**
 	 * El método estaMuerto() informa si la unidad está muerta o no. <br>
 	 * 
-	 * @return retorna si la unidad esta muerta o no.
+	 * @return retorna si la unidad está muerta o no.
 	 */
 	public boolean estaMuerto() {
 		return this.salud == 0;
