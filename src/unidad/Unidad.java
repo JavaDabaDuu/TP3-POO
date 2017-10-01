@@ -204,6 +204,9 @@ public abstract class Unidad {
 
 	/**
 	 * Setter de la posición. <br>
+	 * 
+	 * @param posicion
+	 *            es la posicion de la unidad
 	 */
 	void setPosicion(Punto posicion) {
 		this.posicion = posicion;
