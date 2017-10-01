@@ -49,6 +49,9 @@ public abstract class Unidad {
 
 	/**
 	 * El constructor de Unidad recibe un punto en el que se sitúa la unidad.
+	 * 
+	 * @param posicion
+	 *            es la posicion en la se en ubica la unidad
 	 */
 	public Unidad(Punto posicion) {
 		this.posicion = posicion;
@@ -57,6 +60,9 @@ public abstract class Unidad {
 	/**
 	 * El constructor por copia Unidad recibe una Unidad de la cual copiará sus
 	 * atributos.
+	 * 
+	 * @param unidad
+	 *            es la unidad de la que se copian los atributos
 	 */
 	public Unidad(Unidad unidad) {
 		this.ataque = unidad.getAtaque();

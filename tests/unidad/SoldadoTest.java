@@ -67,7 +67,7 @@ public class SoldadoTest {
 	}
 	
 	@Test
-	public void equipadoConPuñal() {
+	public void equipadoConPunial() {
 		UnidadEquipada unidad = new UnidadConPunial(this.soldado);
 		Assert.assertEquals(13, unidad.getAtaque());
 		Assert.assertEquals(0, unidad.getDefensa());
@@ -88,14 +88,14 @@ public class SoldadoTest {
 	}
 	
 	@Test
-	public void equipadoConPuñalYCapa() {
+	public void equipadoConPunialYCapa() {
 		UnidadEquipada unidad = new UnidadConCapa(new UnidadConPunial(this.soldado));
 		Assert.assertEquals(11, unidad.getAtaque());
 		Assert.assertEquals(0, unidad.getDefensa());
 	}
 	
 	@Test
-	public void equipadoConPuñalYEscudo() {
+	public void equipadoConPunialYEscudo() {
 		UnidadEquipada unidad = new UnidadConEscudo(new UnidadConPunial(this.soldado));
 		Arquero atacante = new Arquero(new Punto(3,3));
 		atacante.atacar(unidad);
@@ -114,7 +114,7 @@ public class SoldadoTest {
 	}
 	
 	@Test
-	public void equipadoConCapaPuñalYEscudo() {
+	public void equipadoConCapaPunialYEscudo() {
 		UnidadEquipada unidad = new UnidadConEscudo(new UnidadConPunial(new UnidadConCapa(this.soldado)));
 		Arquero atacante = new Arquero(new Punto(3,3));
 		atacante.atacar(unidad);
