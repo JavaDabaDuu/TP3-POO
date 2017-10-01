@@ -1,9 +1,6 @@
 # Programación Orientada a Objetos
 TP3 de Clase de Programación Avanzada.
 
-# POO
-# JUnit
-
 ### Integrantes del equipo
 
 * Fabián Escobar ([FabianNorbertoEscobar](https://github.com/FabianNorbertoEscobar))
