@@ -93,16 +93,16 @@ public class Caballero extends Unidad {
 	 * El daño recibido es reducido por la defensa.<br>
 	 * Se actualiza el estado del caballo luego de recibir el ataque.
 	 * 
-	 * @param daño
+	 * @param danio
 	 *            es el daño recibido por una unidad en un ataque
 	 */
 	@Override
-	protected void serAtacado(int daño) {
-		if (daño > this.defensa) {
-			if (this.salud < daño)
+	protected void serAtacado(int danio) {
+		if (danio > this.defensa) {
+			if (this.salud < danio)
 				this.salud = 0;
 			else
-				this.salud -= daño - this.defensa;
+				this.salud -= danio - this.defensa;
 		}
 		if (!this.estaMuerto()) {
 			if (!this.caballoRebelde)

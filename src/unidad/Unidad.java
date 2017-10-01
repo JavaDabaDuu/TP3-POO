@@ -137,9 +137,10 @@ public abstract class Unidad {
 	 * Se encarga de ciertas modificaciones a la unidad luego de ser atacada por
 	 * otra.
 	 * 
-	 * @param daño
+	 * @param danio
+	 *            es el daño que se recibe en un ataque
 	 */
-	protected abstract void serAtacado(int daño);
+	protected abstract void serAtacado(int danio);
 
 	/**
 	 * Getter del atributo salud. <br>

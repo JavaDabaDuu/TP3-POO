@@ -56,12 +56,12 @@ public abstract class UnidadEquipada extends Unidad {
 	 * Sobreescritura del método de la clase Padre, dependerá del tipo de Unidad
 	 * que lo llame.
 	 * 
-	 * @param daño
+	 * @param danio
 	 *            es el daño que recibe la unidad en un ataque.
 	 */
 	@Override
-	protected void serAtacado(int daño) {
-		this.serAtacado(daño);
+	protected void serAtacado(int danio) {
+		this.serAtacado(danio);
 	}
 
 }
