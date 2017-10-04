@@ -198,7 +198,7 @@ public abstract class Unidad {
 	 * 
 	 * @return retorna la energía tope actual de la unidad.
 	 */
-	private int getEnergiaTopeActual() {
+	protected int getEnergiaTopeActual() {
 		return this.energiaTopeActual;
 	}
 
@@ -230,4 +230,11 @@ public abstract class Unidad {
 		return this.salud == 0;
 	}
 
+	public void setAtaque(int value) {
+		this.ataque = value;
+	}
+	
+	public void setDefensa(int value) {
+		this.defensa = value;
+	}
 }

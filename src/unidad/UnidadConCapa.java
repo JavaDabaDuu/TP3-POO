@@ -18,15 +18,31 @@ public class UnidadConCapa extends UnidadEquipada {
 	protected static final double INCREMENTO_ENERGIA = 2;
 
 	/**
-	 * Constructor de UnidadConCapa que recibe una Unidad a la cual se le
-	 * modificarán sus atributos.
+	 * Constructor de UnidadConCapa que recibe una Unidad que se decora con una capa
 	 * 
 	 * @param unidad
 	 *            es la unidad que se equipa con una capa
 	 */
 	public UnidadConCapa(Unidad unidad) {
 		super(unidad);
-		this.energiaTopeActual *= INCREMENTO_ENERGIA;
-		this.ataque *= REDUCCION_ATAQUE;
+	}
+	
+	/**
+	 * Getter del atributo defensa. <br>
+	 * 
+	 * @return retorna la defensa de la Unidad.
+	 */
+	public int getEnergiaTopeActual() {
+		return (int) (this.unidad.getEnergiaTopeActual() * INCREMENTO_ENERGIA);
+	}
+	
+	
+	/**
+	 * Getter del atributo defensa. <br>
+	 * 
+	 * @return retorna la defensa de la Unidad.
+	 */
+	public int getAtaque() {
+		return (int) (this.unidad.getAtaque() * 0.9);
 	}
 }

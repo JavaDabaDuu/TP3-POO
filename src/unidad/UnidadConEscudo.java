@@ -10,14 +10,14 @@ public class UnidadConEscudo extends UnidadEquipada {
 	/**
 	 * Porcentaje de reducción que se aplicará al daño recibido por la unidad.
 	 */
-	protected final static double PORCENTAJE_REDUCCION_DANIO = 0.4;
+	protected final static double PORCENTAJE_REDUCCION_DANIO = 0.6;
 
 	/**
-	 * Constructor de UnidadConCapa que recibe una Unidad. En este caso no
-	 * cambian sus atributos.
+	 * Constructor de UnidadConEscudo que recibe una Unidad que se decora con un
+	 * escudo
 	 * 
 	 * @param unidad
-	 *            es la unidad a la se equipa con un escudo
+	 *            es la unidad que se equipa con un escudo
 	 */
 	public UnidadConEscudo(Unidad unidad) {
 		super(unidad);
@@ -32,11 +32,7 @@ public class UnidadConEscudo extends UnidadEquipada {
 	 */
 	@Override
 	protected void serAtacado(int danio) {
-		if (danio > this.defensa) {
-			if (this.salud < (int) (danio * PORCENTAJE_REDUCCION_DANIO))
-				this.salud = 0;
-			else
-				this.salud -= (int) ((danio - this.defensa) * PORCENTAJE_REDUCCION_DANIO);
-		}
+		this.unidad.serAtacado((int) (danio * PORCENTAJE_REDUCCION_DANIO));
 	}
+
 }

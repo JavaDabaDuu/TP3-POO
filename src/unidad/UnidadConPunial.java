@@ -18,15 +18,31 @@ public class UnidadConPunial extends UnidadEquipada {
 	protected static final int REDUCCION_DEFENSA = 3;
 
 	/**
-	 * Constructor de UnidadConPuñal que recibe una Unidad a la cual se le
-	 * modificarán sus atributos.
+	 * Constructor de UnidadConPuñal que recibe una Unidad que se decora con un
+	 * puñal
 	 * 
 	 * @param unidad
 	 *            es la unidad que se equipa con un puñal
 	 */
 	public UnidadConPunial(Unidad unidad) {
 		super(unidad);
-		this.ataque += INCREMENTO_ATAQUE;
-		this.defensa -= REDUCCION_DEFENSA;
+	}
+
+	/**
+	 * Getter del atributo ataque. <br>
+	 * 
+	 * @return retorna el ataquede la Unidad.
+	 */
+	public int getAtaque() {
+		return this.unidad.getAtaque() + INCREMENTO_ATAQUE;
+	}
+
+	/**
+	 * Getter del atributo defensa. <br>
+	 * 
+	 * @return retorna la defensa de la Unidad.
+	 */
+	public int getDefensa() {
+		return this.unidad.getDefensa() - REDUCCION_DEFENSA;
 	}
 }

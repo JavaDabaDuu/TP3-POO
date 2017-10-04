@@ -83,7 +83,7 @@ public class ArqueroTest {
 		UnidadEquipada unidad = new UnidadConEscudo(this.arquero);
 		Arquero atacante = new Arquero(new Punto(3,3));
 		atacante.atacar(unidad);
-		Assert.assertEquals(49, unidad.getSalud());
+		Assert.assertEquals(48, unidad.getSalud());
 	}
 	
 	@Test
@@ -108,7 +108,7 @@ public class ArqueroTest {
 		UnidadEquipada unidad = new UnidadConEscudo(new UnidadConCapa(this.arquero));
 		Arquero atacante = new Arquero(new Punto(3,3));
 		atacante.atacar(unidad);
-		Assert.assertEquals(49, unidad.getSalud());
+		Assert.assertEquals(48, unidad.getSalud());
 		Assert.assertEquals(4, unidad.getAtaque());
 	}
 	
