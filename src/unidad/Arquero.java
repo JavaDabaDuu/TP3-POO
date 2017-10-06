@@ -38,11 +38,6 @@ public class Arquero extends Unidad {
 	private final static int CANTIDAD_FLECHAS = 20;
 
 	/**
-	 * Cantidad actual de flechas que el arquero tiene en su carcaj.
-	 */
-	private int cantidadFlechas;
-
-	/**
 	 * Constructor de la clase Arquero. <br>
 	 * Establece los atributos de arquero a los valores iniciales
 	 * predeterminados.<br>
@@ -81,25 +76,6 @@ public class Arquero extends Unidad {
 	}
 
 	/**
-	 * Sobrescritura del método serAtacado de la clase Unidad.<br>
-	 * Método del arquero para recibir el impacto del daño recibido en un ataque
-	 * sobre su salud.<br>
-	 * El daño recibido es reducido por la defensa.
-	 * 
-	 * @param danio
-	 *            es el daño recibido por una unidad en un ataque
-	 */
-	@Override
-	protected void serAtacado(int danio) {
-		if (danio > this.defensa) {
-			if (this.salud < danio)
-				this.salud = 0;
-			else
-				this.salud -= danio - this.defensa;
-		}
-	}
-
-	/**
 	 * Sobreescritura del método puedeRealizarAtaque de la clase Unidad.<br>
 	 * Método del arquero para analizar si puede realizar un ataque.<br>
 	 * El arquero puede atacar si al menos cuenta con una flecha en el carcaj.
@@ -116,20 +92,12 @@ public class Arquero extends Unidad {
 	 * carcaj. Todos los paquetes de flechas tienen 6 flechas.<br>
 	 * El arquero recarga su carcaj con flechas sin límite.
 	 */
+	@Override
 	public void recibirPaquete() {
 		if (!this.estaMuerto()) {
 			if (this.cantidadFlechas + 6 <= Integer.MAX_VALUE)
 				this.cantidadFlechas += 6;
 		}
-	}
-
-	/**
-	 * Getter del atributo cantidad de flechas del arquero.
-	 * 
-	 * @return la cantidad de flechas actual del arquero.
-	 */
-	public int getCantidadFlechas() {
-		return cantidadFlechas;
 	}
 
 }

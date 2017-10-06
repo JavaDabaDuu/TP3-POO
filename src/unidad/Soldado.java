@@ -37,6 +37,10 @@ public class Soldado extends Unidad {
 	 * Energía actual del soldado.
 	 */
 	private int energia;
+	/**
+	 * El soldado no usa flechas
+	 */
+	private final static int CANTIDAD_FLECHAS = 0;
 
 	/**
 	 * Constructor de la clase Soldado. <br>
@@ -55,6 +59,7 @@ public class Soldado extends Unidad {
 		this.defensa = DEFENSA_BASE;
 		this.distanciaMinima = DISTANCIA_MINIMA;
 		this.distanciaMaxima = DISTANCIA_MAXIMA;
+		this.cantidadFlechas = CANTIDAD_FLECHAS;
 	}
 
 	/**
@@ -76,25 +81,6 @@ public class Soldado extends Unidad {
 	@Override
 	protected void realizarAtaque() {
 		this.energia -= 10;
-	}
-
-	/**
-	 * Sobrescritura del método serAtacado de la clase Unidad.<br>
-	 * Método del soldado para recibir el impacto del daño recibido en un ataque
-	 * sobre su salud.<br>
-	 * El daño recibido es reducido por la defensa.
-	 * 
-	 * @param danio
-	 *            es el daño recibido por una unidad en un ataque
-	 */
-	@Override
-	protected void serAtacado(int danio) {
-		if (danio > this.defensa) {
-			if (this.salud < danio)
-				this.salud = 0;
-			else
-				this.salud -= danio - this.defensa;
-		}
 	}
 
 	/**
@@ -126,6 +112,16 @@ public class Soldado extends Unidad {
 	 */
 	void setEnergia(int energia) {
 		this.energia = energia;
+	}
+
+	/**
+	 * Sobreescritura del método consumirAgua de la clase Unidad.<br>
+	 * Método del soldado para recibir un paquete de flechas.
+	 */
+	@Override
+	public void recibirPaquete() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

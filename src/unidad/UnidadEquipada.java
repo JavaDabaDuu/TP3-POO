@@ -38,6 +38,14 @@ public abstract class UnidadEquipada extends Unidad {
 		this.unidad.consumirAgua();
 	}
 	
+	/**
+	 * Sobreescritura del método de la clase Padre, dependerá del tipo de Unidad
+	 * que lo llame.
+	 */
+	@Override
+	public void recibirPaquete() {
+		this.unidad.recibirPaquete();
+	}
 
 	/**
 	 * Sobreescritura del método de la clase Padre, dependerá del tipo de Unidad
@@ -152,4 +160,14 @@ public abstract class UnidadEquipada extends Unidad {
 	public boolean estaMuerto() {
 		return this.unidad.estaMuerto();
 	}
+	
+	/**
+	 * Getter de la cantidad de flechas. <br>
+	 * 
+	 * @return retorna la posición actual de la Unidad.
+	 */
+	public int getCantidadFlechas() {
+		return this.unidad.getCantidadFlechas();
+	}
+	
 }

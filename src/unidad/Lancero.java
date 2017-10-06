@@ -32,6 +32,10 @@ public class Lancero extends Unidad {
 	 * Distancia máxima a la que puede atacar un lancero.
 	 */
 	private final static double DISTANCIA_MAXIMA = 3;
+	/**
+	 * El lancero no usa flechas
+	 */
+	private final static int CANTIDAD_FLECHAS = 0;
 
 	/**
 	 * Constructor de la clase Lancero. <br>
@@ -49,6 +53,7 @@ public class Lancero extends Unidad {
 		this.defensa = DEFENSA_BASE;
 		this.distanciaMinima = DISTANCIA_MINIMA;
 		this.distanciaMaxima = DISTANCIA_MAXIMA;
+		this.cantidadFlechas = CANTIDAD_FLECHAS;
 	}
 
 	/**
@@ -71,25 +76,6 @@ public class Lancero extends Unidad {
 	}
 
 	/**
-	 * Sobrescritura del método serAtacado de la clase Unidad.<br>
-	 * Método del lancero para recibir el impacto del daño recibido en un ataque
-	 * sobre su salud.<br>
-	 * El daño recibido es reducido por la defensa.
-	 * 
-	 * @param danio
-	 *            es el daño recibido por una unidad en un ataque
-	 */
-	@Override
-	protected void serAtacado(int danio) {
-		if (danio > this.defensa) {
-			if (this.salud < danio)
-				this.salud = 0;
-			else
-				this.salud -= danio - this.defensa;
-		}
-	}
-
-	/**
 	 * Sobreescritura del método puedeRealizarAtaque de la clase Unidad.<br>
 	 * Método del lancero para analizar si puede realizar un ataque.
 	 * 
@@ -98,6 +84,16 @@ public class Lancero extends Unidad {
 	@Override
 	protected boolean puedeRealizarAtaque() {
 		return true;
+	}
+
+	/**
+	 * Sobreescritura del método consumirAgua de la clase Unidad.<br>
+	 * Método del lancero para recibir un paquete de flechas.
+	 */
+	@Override
+	public void recibirPaquete() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

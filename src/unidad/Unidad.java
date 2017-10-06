@@ -48,6 +48,11 @@ public abstract class Unidad {
 	protected int energiaTopeActual;
 
 	/**
+	 * Cantidad actual de flechas que el arquero tiene en su carcaj.
+	 */
+	protected int cantidadFlechas;
+	
+	/**
 	 * El constructor de Unidad recibe un punto en el que se sitúa la unidad.
 	 * 
 	 * @param posicion
@@ -72,6 +77,7 @@ public abstract class Unidad {
 		this.energiaTopeActual = unidad.getEnergiaTopeActual();
 		this.salud = unidad.getSalud();
 		this.posicion = unidad.getPosicion();
+		this.cantidadFlechas = unidad.getCantidadFlechas();
 	}
 
 	/**
@@ -79,7 +85,12 @@ public abstract class Unidad {
 	 * hijas.
 	 */
 	public abstract void consumirAgua();
-
+	
+	/**
+	 * El método recibirPaquete() será implementado por cada una de las clases
+	 * hijas.
+	 */
+	public abstract void recibirPaquete();
 	/**
 	 * El método atacar() se encarga de realizar el ataque de una unidad a otra.
 	 * <br>
@@ -120,6 +131,22 @@ public abstract class Unidad {
 			return true;
 		return false;
 	}
+	
+	/**
+	 * El método serAtacado() se encarga de modificar la salud de la Unidad
+	 * luego de ser atacada por otra.
+	 * 
+	 * @param danio
+	 *            es el daño que se recibe en un ataque
+	 */
+	protected void serAtacado(int danio) {
+		if (danio > this.defensa) {
+			if (this.salud < danio)
+				this.salud = 0;
+			else
+				this.salud -= danio - this.defensa;
+		}
+	}
 
 	/**
 	 * El método puedeRealizarAtaque() será implementado por cada una de las
@@ -136,17 +163,6 @@ public abstract class Unidad {
 	 * a otra.
 	 */
 	protected abstract void realizarAtaque();
-
-	/**
-	 * El método serAtacado() será implementado por cada una de las clases
-	 * hijas. <br>
-	 * Se encarga de ciertas modificaciones a la unidad luego de ser atacada por
-	 * otra.
-	 * 
-	 * @param danio
-	 *            es el daño que se recibe en un ataque
-	 */
-	protected abstract void serAtacado(int danio);
 
 	/**
 	 * Getter del atributo salud. <br>
@@ -220,6 +236,15 @@ public abstract class Unidad {
 	public Punto getPosicion() {
 		return posicion;
 	}
+	
+	/**
+	 * Getter de la cantidad de flechas. <br>
+	 * 
+	 * @return retorna la posición actual de la Unidad.
+	 */
+	public int getCantidadFlechas() {
+		return this.cantidadFlechas;
+	}
 
 	/**
 	 * El método estaMuerto() informa si la unidad está muerta o no. <br>
@@ -228,13 +253,5 @@ public abstract class Unidad {
 	 */
 	public boolean estaMuerto() {
 		return this.salud == 0;
-	}
-
-	public void setAtaque(int value) {
-		this.ataque = value;
-	}
-	
-	public void setDefensa(int value) {
-		this.defensa = value;
 	}
 }
