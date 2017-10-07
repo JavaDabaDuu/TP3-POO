@@ -36,6 +36,11 @@ public class Arquero extends Unidad {
 	 * Cantidad inicial de flechas que el arquero tiene en su carcaj.
 	 */
 	private final static int CANTIDAD_FLECHAS = 20;
+	
+	/**
+	 * Cantidad actual de flechas que el arquero tiene en su carcaj.
+	 */
+	protected int cantidadFlechas;
 
 	/**
 	 * Constructor de la clase Arquero. <br>
@@ -62,7 +67,7 @@ public class Arquero extends Unidad {
 	 */
 	@Override
 	public void consumirAgua() {
-
+		
 	}
 
 	/**
@@ -84,7 +89,7 @@ public class Arquero extends Unidad {
 	 */
 	@Override
 	protected boolean puedeRealizarAtaque() {
-		return this.cantidadFlechas > 0;
+		return this.getCantidadFlechas() > 0;
 	}
 
 	/**
@@ -100,4 +105,8 @@ public class Arquero extends Unidad {
 		}
 	}
 
+	
+	protected int getCantidadFlechas() {
+		return this.cantidadFlechas;
+	}
 }

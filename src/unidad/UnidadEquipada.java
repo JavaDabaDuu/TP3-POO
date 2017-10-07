@@ -161,13 +161,4 @@ public abstract class UnidadEquipada extends Unidad {
 		return this.unidad.estaMuerto();
 	}
 	
-	/**
-	 * Getter de la cantidad de flechas. <br>
-	 * 
-	 * @return retorna la posición actual de la Unidad.
-	 */
-	public int getCantidadFlechas() {
-		return this.unidad.getCantidadFlechas();
-	}
-	
 }

@@ -92,6 +92,7 @@ public class SoldadoTest {
 		UnidadEquipada unidad = new UnidadConCapa(new UnidadConPunial(this.soldado));
 		Assert.assertEquals(11, unidad.getAtaque());
 		Assert.assertEquals(0, unidad.getDefensa());
+		Assert.assertEquals(200, unidad.getEnergiaTopeActual());
 	}
 	
 	@Test
@@ -111,6 +112,7 @@ public class SoldadoTest {
 		atacante.atacar(unidad);
 		Assert.assertEquals(200, unidad.getSalud());
 		Assert.assertEquals(9, unidad.getAtaque());
+		Assert.assertEquals(200, unidad.getEnergiaTopeActual());
 	}
 	
 	@Test
@@ -121,5 +123,6 @@ public class SoldadoTest {
 		Assert.assertEquals(200, unidad.getSalud());
 		Assert.assertEquals(12, unidad.getAtaque());
 		Assert.assertEquals(0, unidad.getDefensa());
+		Assert.assertEquals(200, unidad.getEnergiaTopeActual());
 	}
 }

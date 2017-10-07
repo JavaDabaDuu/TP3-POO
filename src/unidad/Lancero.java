@@ -32,10 +32,6 @@ public class Lancero extends Unidad {
 	 * Distancia máxima a la que puede atacar un lancero.
 	 */
 	private final static double DISTANCIA_MAXIMA = 3;
-	/**
-	 * El lancero no usa flechas
-	 */
-	private final static int CANTIDAD_FLECHAS = 0;
 
 	/**
 	 * Constructor de la clase Lancero. <br>
@@ -53,7 +49,6 @@ public class Lancero extends Unidad {
 		this.defensa = DEFENSA_BASE;
 		this.distanciaMinima = DISTANCIA_MINIMA;
 		this.distanciaMaxima = DISTANCIA_MAXIMA;
-		this.cantidadFlechas = CANTIDAD_FLECHAS;
 	}
 
 	/**
@@ -92,8 +87,7 @@ public class Lancero extends Unidad {
 	 */
 	@Override
 	public void recibirPaquete() {
-		// TODO Auto-generated method stub
-		
+
 	}
 
 }

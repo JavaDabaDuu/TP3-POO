@@ -32,38 +32,17 @@ public class UnidadConCapa extends UnidadEquipada {
 	 * 
 	 * @return retorna la defensa de la Unidad.
 	 */
-	public int getEnergiaTopeActual() {
-		return (int) (this.unidad.getEnergiaTopeActual() * INCREMENTO_ENERGIA);
+	public int getAtaque() {
+		return (int) (this.unidad.getAtaque() * 0.9);
 	}
-	
 	
 	/**
 	 * Getter del atributo defensa. <br>
 	 * 
 	 * @return retorna la defensa de la Unidad.
 	 */
-	public int getAtaque() {
-		return (int) (this.unidad.getAtaque() * 0.9);
+	public int getEnergiaTopeActual() {
+		return (int) (this.unidad.getEnergiaTopeActual() * INCREMENTO_ENERGIA);
 	}
 	
-	/**
-	 * El método atacar() se encarga de realizar el ataque de una unidad a otra.
-	 * <br>
-	 * Devuelve un booleano informando si el ataque se pudo realizar o no. <br>
-	 * Las condiciones bajo a las cuales una unidad puede atacar a otra dependen
-	 * de la posición relativa entre ellas, entre otras condiciones especificas
-	 * para cada unidad. <br>
-	 * 
-	 * @param unidad
-	 *            Unidad la cual es atacada. <br>
-	 * @return retorna si el ataque fue realizado satisfactoriamente.
-	 */
-	public boolean atacar(Unidad unidad) {
-		if (this.unidad.puedeAtacar(unidad)) {
-			this.unidad.realizarAtaque();
-			unidad.serAtacado(this.getAtaque());
-			return true;
-		}
-		return false;
-	}
 }

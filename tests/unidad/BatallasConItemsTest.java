@@ -104,14 +104,13 @@ public class BatallasConItemsTest {
 		UnidadEquipada caballero = new UnidadConPunial(new UnidadConPunial(new UnidadConPunial(new UnidadConEscudo(new Caballero(new Punto(1, 1))))));
 		UnidadEquipada arquero = new UnidadConCapa(new Arquero(new Punto(1, 3)));
 		
-		while (arquero.getCantidadFlechas() > 0) {
+		while (arquero.puedeRealizarAtaque()) {
 			arquero.atacar(caballero);
 		}
 		// El arquero se queda sin flechas, y el caballero no esta muerto. Entonces le doy un paquete de flechas para que siga peleando.
 		Assert.assertFalse(caballero.estaMuerto());
-		Assert.assertEquals(0, arquero.getCantidadFlechas());
+		Assert.assertFalse(arquero.puedeRealizarAtaque());
 		arquero.recibirPaquete();
-		Assert.assertEquals(6, arquero.getCantidadFlechas());
 		// El caballero consume agua ya que su caballo se puso rebelde al recibir tantos flechazos.
 		caballero.consumirAgua();
 		while (!caballero.estaMuerto() && !arquero.estaMuerto()) {
@@ -130,4 +129,34 @@ public class BatallasConItemsTest {
 		Assert.assertEquals(1, arquero.getDefensa());
 		Assert.assertEquals(0, arquero.getSalud());
 	}
+/*
+	@Test
+	public void SoldadoConCapaVsSoldadoConPunial() {
+		UnidadEquipada soldadoPunial = new UnidadConPunial(new Soldado(new Punto(1, 1)));
+		UnidadEquipada soldadoCapa = new UnidadConCapa(new Soldado(new Punto(1, 2)));
+
+		while (!soldadoPunial.estaMuerto() && !soldadoCapa.estaMuerto()) {
+			for(int i = 0 ; i < 15 ; i++) {
+				soldadoPunial.atacar(soldadoCapa);
+				soldadoCapa.atacar(soldadoPunial);
+				System.out.println("solP: " + soldadoPunial.getSalud() + " " + i);
+				System.out.println("solC: " + soldadoCapa.getSalud() + " " + i);
+				
+			}
+			soldadoCapa.consumirAgua();
+			soldadoPunial.consumirAgua();
+		}
+		// Perdedor muerto y ganador vivo.
+		Assert.assertTrue(soldadoPunial.estaMuerto());
+		Assert.assertFalse(soldadoCapa.estaMuerto());
+		// Estado final del Caballero.
+		Assert.assertEquals(50, soldadoCapa.getAtaque());
+		Assert.assertEquals(4, soldadoCapa.getDefensa());
+		Assert.assertEquals(179, soldadoCapa.getSalud());
+		// Estado final del Soldado.
+		Assert.assertEquals(12, soldadoPunial.getAtaque());
+		Assert.assertEquals(0, soldadoPunial.getDefensa());
+		Assert.assertEquals(0, soldadoPunial.getSalud());
+	}
+	*/
 }

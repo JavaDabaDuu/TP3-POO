@@ -37,10 +37,6 @@ public class Soldado extends Unidad {
 	 * Energía actual del soldado.
 	 */
 	private int energia;
-	/**
-	 * El soldado no usa flechas
-	 */
-	private final static int CANTIDAD_FLECHAS = 0;
 
 	/**
 	 * Constructor de la clase Soldado. <br>
@@ -53,13 +49,12 @@ public class Soldado extends Unidad {
 	public Soldado(Punto posicion) {
 		super(posicion);
 		this.energiaTopeActual = ENERGIA_BASE;
-		this.energia = this.energiaTopeActual;
+		this.energia = this.getEnergiaTopeActual();
 		this.salud = SALUD_BASE;
 		this.ataque = ATAQUE_BASE;
 		this.defensa = DEFENSA_BASE;
 		this.distanciaMinima = DISTANCIA_MINIMA;
 		this.distanciaMaxima = DISTANCIA_MAXIMA;
-		this.cantidadFlechas = CANTIDAD_FLECHAS;
 	}
 
 	/**
@@ -70,7 +65,7 @@ public class Soldado extends Unidad {
 	@Override
 	public void consumirAgua() {
 		if (!this.estaMuerto())
-			this.energia = this.energiaTopeActual;
+			this.energia = this.getEnergiaTopeActual();
 	}
 
 	/**
@@ -92,7 +87,7 @@ public class Soldado extends Unidad {
 	 */
 	@Override
 	protected boolean puedeRealizarAtaque() {
-		return this.energia >= 10;
+		return this.getEnergia() > 0;
 	}
 
 	/**
@@ -105,22 +100,11 @@ public class Soldado extends Unidad {
 	}
 
 	/**
-	 * Setter del atributo energía del soldado.<br>
-	 * 
-	 * @param energia
-	 *            es la energía que se le establece luego de equiparse una capa.
-	 */
-	void setEnergia(int energia) {
-		this.energia = energia;
-	}
-
-	/**
 	 * Sobreescritura del método consumirAgua de la clase Unidad.<br>
 	 * Método del soldado para recibir un paquete de flechas.
 	 */
 	@Override
 	public void recibirPaquete() {
-		// TODO Auto-generated method stub
 		
 	}
 

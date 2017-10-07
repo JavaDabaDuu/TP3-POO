@@ -32,10 +32,6 @@ public class Caballero extends Unidad {
 	 * Distancia máxima a la que puede atacar un caballero.
 	 */
 	private final static double DISTANCIA_MAXIMA = 2;
-	/**
-	 * El caballero no usa flechas
-	 */
-	private final static int CANTIDAD_FLECHAS = 0;
 
 	/**
 	 * Estado del caballo de un caballero.<br>
@@ -67,7 +63,6 @@ public class Caballero extends Unidad {
 		this.distanciaMaxima = DISTANCIA_MAXIMA;
 		this.caballoRebelde = false;
 		this.ataquesRecibidos = 0;
-		this.cantidadFlechas = CANTIDAD_FLECHAS;
 	}
 
 	/**
@@ -155,7 +150,6 @@ public class Caballero extends Unidad {
 	 */
 	@Override
 	public void recibirPaquete() {
-		// TODO Auto-generated method stub
 		
 	}
 

@@ -46,35 +46,9 @@ public class UnidadConPunial extends UnidadEquipada {
 		return this.unidad.getDefensa() - REDUCCION_DEFENSA;
 	}
 	
-	/**
-	 * El método atacar() se encarga de realizar el ataque de una unidad a otra.
-	 * <br>
-	 * Devuelve un booleano informando si el ataque se pudo realizar o no. <br>
-	 * Las condiciones bajo a las cuales una unidad puede atacar a otra dependen
-	 * de la posición relativa entre ellas, entre otras condiciones especificas
-	 * para cada unidad. <br>
-	 * 
-	 * @param unidad
-	 *            Unidad la cual es atacada. <br>
-	 * @return retorna si el ataque fue realizado satisfactoriamente.
-	 */
-	public boolean atacar(Unidad unidad) {
-		if (this.unidad.puedeAtacar(unidad)) {
-			this.unidad.realizarAtaque();
-			unidad.serAtacado(this.getAtaque());
-			return true;
-		}
-		return false;
+	@Override
+	protected void serAtacado(int danio) {
+		this.unidad.serAtacado((int) (danio - this.getDefensa()));
 	}
 	
-	/**
-	 * El método serAtacado() se encarga de modificar la salud de la Unidad
-	 * luego de ser atacada por otra.
-	 * 
-	 * @param danio
-	 *            es el daño que se recibe en un ataque
-	 */
-	protected void serAtacado(int danio) {
-		this.unidad.serAtacado(danio - this.getDefensa());
-	}
 }

@@ -98,9 +98,9 @@ public class ArqueroTest {
 		UnidadEquipada unidad = new UnidadConEscudo(new UnidadConPunial(this.arquero));
 		Arquero atacante = new Arquero(new Punto(3,3));
 		atacante.atacar(unidad);
-		Assert.assertEquals(46, unidad.getSalud());
 		Assert.assertEquals(8, unidad.getAtaque());
 		Assert.assertEquals(-2, unidad.getDefensa());
+		Assert.assertEquals(46, unidad.getSalud());
 	}
 	
 	@Test

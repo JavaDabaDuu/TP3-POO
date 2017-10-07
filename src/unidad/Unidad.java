@@ -46,11 +46,7 @@ public abstract class Unidad {
 	 * Este tope puede ser modificado al equipar una capa.
 	 */
 	protected int energiaTopeActual;
-
-	/**
-	 * Cantidad actual de flechas que el arquero tiene en su carcaj.
-	 */
-	protected int cantidadFlechas;
+	
 	
 	/**
 	 * El constructor de Unidad recibe un punto en el que se sitúa la unidad.
@@ -77,7 +73,6 @@ public abstract class Unidad {
 		this.energiaTopeActual = unidad.getEnergiaTopeActual();
 		this.salud = unidad.getSalud();
 		this.posicion = unidad.getPosicion();
-		this.cantidadFlechas = unidad.getCantidadFlechas();
 	}
 
 	/**
@@ -106,7 +101,7 @@ public abstract class Unidad {
 	public boolean atacar(Unidad unidad) {
 		if (this.puedeAtacar(unidad)) {
 			this.realizarAtaque();
-			unidad.serAtacado(this.ataque);
+			unidad.serAtacado(this.getAtaque());
 			return true;
 		}
 		return false;
@@ -127,7 +122,7 @@ public abstract class Unidad {
 		if (this.estaMuerto() || unidad.estaMuerto())
 			return false;
 		double distancia = this.posicion.distanciaCon(unidad.getPosicion());
-		if (distancia >= this.distanciaMinima && distancia <= this.distanciaMaxima && this.puedeRealizarAtaque())
+		if (distancia >= this.getDistanciaMinima() && distancia <= this.getDistanciaMaxima() && this.puedeRealizarAtaque())
 			return true;
 		return false;
 	}
@@ -140,11 +135,11 @@ public abstract class Unidad {
 	 *            es el daño que se recibe en un ataque
 	 */
 	protected void serAtacado(int danio) {
-		if (danio > this.defensa) {
-			if (this.salud < danio)
+		if (danio > this.getDefensa()) {
+			if (this.getSalud() < danio)
 				this.salud = 0;
 			else
-				this.salud -= danio - this.defensa;
+				this.salud -= danio - this.getDefensa();
 		}
 	}
 
@@ -170,7 +165,7 @@ public abstract class Unidad {
 	 * @return retorna la salud de la Unidad.
 	 */
 	public int getSalud() {
-		return salud;
+		return this.salud;
 	}
 
 	/**
@@ -179,7 +174,7 @@ public abstract class Unidad {
 	 * @return retorna el ataquede la Unidad.
 	 */
 	public int getAtaque() {
-		return ataque;
+		return this.ataque;
 	}
 
 	/**
@@ -188,7 +183,7 @@ public abstract class Unidad {
 	 * @return retorna la defensa de la Unidad.
 	 */
 	public int getDefensa() {
-		return defensa;
+		return this.defensa;
 	}
 
 	/**
@@ -197,7 +192,7 @@ public abstract class Unidad {
 	 * @return retorna la distanciaMinima desde la cual la unidad puede atacar.
 	 */
 	public double getDistanciaMinima() {
-		return distanciaMinima;
+		return this.distanciaMinima;
 	}
 
 	/**
@@ -206,7 +201,7 @@ public abstract class Unidad {
 	 * @return retorna la distanciaMaxima desde la cual la unidad puede atacar.
 	 */
 	public double getDistanciaMaxima() {
-		return distanciaMaxima;
+		return this.distanciaMaxima;
 	}
 
 	/**
@@ -236,15 +231,6 @@ public abstract class Unidad {
 	public Punto getPosicion() {
 		return posicion;
 	}
-	
-	/**
-	 * Getter de la cantidad de flechas. <br>
-	 * 
-	 * @return retorna la posición actual de la Unidad.
-	 */
-	public int getCantidadFlechas() {
-		return this.cantidadFlechas;
-	}
 
 	/**
 	 * El método estaMuerto() informa si la unidad está muerta o no. <br>
@@ -252,6 +238,6 @@ public abstract class Unidad {
 	 * @return retorna si la unidad está muerta o no.
 	 */
 	public boolean estaMuerto() {
-		return this.salud == 0;
+		return this.getSalud() == 0;
 	}
 }
